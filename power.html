@@ -1,0 +1,23 @@
+<html>
+    <table border="border">
+	<body style="text-align: center;">
+		<h1> Table</h1>
+		<p><input type="text" id="num" placeholder="Enter number"/></p>
+		<p><input type="button" value="Print Table." onclick='table()'/>
+		
+		<p id="print"></p>
+    </body>
+</table>
+    <script>
+        function table()
+        {
+            var num;
+            num=Number(document.getElementById('num').value);
+            for(var i=1; i<=10; i++){
+                var pTag= document.getElementById('print');
+                pTag.innerHTML += (num*i) + "<br/>" 
+            }
+        }
+    </script>
+ 
+</html> 

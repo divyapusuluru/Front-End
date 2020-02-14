@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pixel Art Maker!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Pixel Art Maker</h1>
+
+    <h2>Choose Grid Size</h2>
+    <form id="sizePicker" onsubmit="makeGrid(event)">
+        Grid Height:
+        <input type="number" id="inputHeight" name="height" min="1" value="1">
+        Grid Width:
+        <input type="number" id="inputWidth" name="width" min="1" value="1">
+        <input type="submit" value= "submit">
+    </form>
+
+    <h2>Pick A Color</h2>
+    <input type="color" id="colorPicker">
+
+    <h2>Design Canvas</h2>
+    <table id="pixelCanvas"></table>
+
+    <script src="designs.js"></script>
+</body>
+<style>
+    body {
+    text-align: center;
+}
+
+h1 {
+    font-family: Monoton;
+    font-size: 70px;
+    margin: 0.2em;
+}
+
+h2 {
+    margin: 1em 0 0.25em;
+}
+
+h2:first-of-type {
+    margin-top: 0.5em;
+}
+
+table,
+tr,
+td {
+    border: 1px solid black;
+    padding: 25px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+input[type=number] {
+    width: 6em;
+}
+</style>
+<script>
+    function makeGrid(ev) {
+  ev.preventDefault();
+  var heights = document.getElementById("inputHeight").value;
+  var widths = document.getElementById("inputWidth").value;
+  var body = document.getElementById("pixelCanvas");
+  var table = document.createElement('TABLE')
+  var tblB = document.createElement('TBODY');
+  table.appendChild(tblB);
+  for (var i=0; i<heights; i++){
+    var tr = document.createElement('TR');
+    table.appendChild(tr);
+    for (var j=0; j<widths; j++){
+      var td = document.createElement('TD')
+      document.getElementById("pixelCanvas").onclick = function(){
+        td = document.getElementById("colorPicker").value;
+        alert(td);
+      }
+      table.appendChild(td);
+    }
+  }
+  body.append(table);
+  body.addEventListener('click', function(){
+    var coloor = document.getElementById("colorPicker").value;
+    body.style.backgroundColor = coloor;
+  })
+}
+</script>
+</html>

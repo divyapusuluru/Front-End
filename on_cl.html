@@ -1,0 +1,94 @@
+
+<style>
+.container {
+  background: #EFEFEF;
+  position: relative;
+  width: 126px;
+  height: 40px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: #CCC solid 1px;
+  border-radius: 2px 0 0 2px;
+  border-bottom: #EEE solid 1px;
+  border-right: #ddd solid 1px;
+  border-left: #ddd solid 1px;
+  border-radius: 2px 0 0 2px;
+  border-style: solid;
+  border-width: 1px;
+}
+.container2 {
+  background: #EFEFEF;
+  position: relative;
+  width: 226px;
+  height: 40px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: #CCC solid 1px;
+  border-radius: 2px 0 0 2px;
+  border-bottom: #EEE solid 1px;
+  border-right: #ddd solid 1px;
+  border-left: #ddd solid 1px;
+  border-radius: 2px 0 0 2px;
+  border-style: solid;
+  border-width: 1px;
+}
+.switch {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.15s ease;
+  left: 0;
+  z-index: 1;
+}
+.switch-title {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+.container.off {} .container.off .switch,
+.container2.off .switch {
+  left: 50%;
+  background-color: #fff;
+}
+.container2.off .left-long,
+.container.off .left-short,
+.container2.on .right-long,
+.container.on .right-short {
+  color: #aaa;
+}
+.label {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  padding-top: 11px;
+  z-index: 1;
+  font: 16px"adiHaus", Arial, sans-serif;
+  font-weight: bolder;
+  color: #000;
+}
+.label.right-long {
+  left: 50%;
+}
+.label.right-short {
+  left: 50%;
+}
+</style>
+<script>
+    function onContainerClick(event) {
+  if (event.classList.contains('off')) {
+    event.classList.remove('off');
+  } else {
+    event.classList.add('off');
+  }
+}
+</script>
+<body>
+    <div class="switch-title">Hand:</div>
+<div class="container" id="container" onclick="onContainerClick(this)">
+  <div class="switch" id="switch">
+  </div>
+  <div class="label left-short" onclick="onContainerClick(this)">L</div>
+  <div class="label right-short" onclick="onContainerClick(this)">R</div>
+</div>
+</body>
